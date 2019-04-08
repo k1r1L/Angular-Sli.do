@@ -1,0 +1,12 @@
+<form (ngSubmit)="postQuestion()" [formGroup]="questionForm" fxLayout="column" fxLayoutAlign="center center">
+  <mat-form-field appearance="outline">
+    <mat-label>Ask</mat-label>
+    <textarea formControlName="text" matInput placeholder="Type your question" rows="5">
+      </textarea>
+    <mat-icon matSuffix>question_answer</mat-icon>
+    <mat-error *ngIf="questionForm.get('text').hasError('required')">Please ask a question</mat-error>
+    <mat-error *ngIf="questionForm.get('text').hasError('minlength')">Question must be at least 10 symbols long</mat-error>
+    <mat-error *ngIf="questionForm.get('text').hasError('maxlength')">Question must not be more than 70 symbols long</mat-error>
+  </mat-form-field>
+  <button [disabled]="questionForm.invalid" type="submit" mat-fab color="primary">Send</button>
+</form>

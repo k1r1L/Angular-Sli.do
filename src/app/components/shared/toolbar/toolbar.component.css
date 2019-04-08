@@ -1,0 +1,19 @@
+/* Toolbar CSS */
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: orange;
+}
+
+.logout-link {
+  cursor: pointer;
+}
+
+.navigation-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

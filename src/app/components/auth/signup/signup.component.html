@@ -1,0 +1,26 @@
+<form 
+    (ngSubmit)="signup()" 
+    [formGroup]="signupForm"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="20px">
+  <mat-form-field>
+    <input formControlName="email" matInput type="email" placeholder="Your email...">
+    <mat-hint>Enter a valid email address.</mat-hint>
+    <mat-error *ngIf="signupForm.get('email').hasError('required')">Email is required.</mat-error>
+    <mat-error *ngIf="signupForm.get('email').hasError('email')">Email is invalid.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="password" matInput type="password" placeholder="Your password...">
+    <mat-hint>Enter a valid password.</mat-hint>
+    <mat-error *ngIf="signupForm.get('password').hasError('required')">Password is required.</mat-error>
+    <mat-error *ngIf="signupForm.get('password').hasError('minlength')">Password must be at least 6 symbols.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="birthDate" matInput [matDatepicker]="picker" placeholder="Birthday...">
+    <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-hint>Birthday is required.</mat-hint>
+  </mat-form-field>
+  <button [disabled]="signupForm.invalid" mat-raised-button type="submit" color="primary">Sign Up</button>
+</form>

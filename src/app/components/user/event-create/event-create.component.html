@@ -1,0 +1,18 @@
+<section class="event-form">
+  <form (ngSubmit)="createEvent()" [formGroup]="createForm" fxLayout="column" fxLayoutAlign="center center"
+    fxLayoutGap="20px">
+    <mat-form-field>
+      <input formControlName="code" matInput type="text" placeholder="Enter event code">
+      <mat-hint>Enter a valid event code.</mat-hint>
+      <mat-error *ngIf="createForm.get('code').hasError('required')">Event Code is required.</mat-error>
+      <mat-error *ngIf="createForm.get('code').hasError('minlength')">Event Code must be at least 6 symbols.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="expiresOn" matInput [matDatepicker]="picker" placeholder="Event expires on ?">
+      <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error>Expiration Date is required.</mat-error>
+    </mat-form-field>
+    <button [disabled]="createForm.invalid" mat-raised-button type="submit" color="primary">Create Event</button>
+  </form>
+</section>

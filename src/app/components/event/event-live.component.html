@@ -1,0 +1,10 @@
+<section class="event-live">
+  <app-event-post-question></app-event-post-question>
+  <div fxLayout="column" fxLayoutGap="20px">
+    <app-event-question 
+      fxLayoutAlign="center center"
+      *ngFor="let question of eventQuestions"
+      [questionInfo]="question">
+    </app-event-question>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+textarea {
+  resize: none !important;
+}
+
+form {
+  padding: 30px;
+}
+
+mat-form-field {
+  width: 500px;
+}
