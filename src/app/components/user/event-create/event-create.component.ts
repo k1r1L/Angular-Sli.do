@@ -9,6 +9,7 @@ import { EventService } from 'src/app/core/services/event.service';
 })
 export class EventCreateComponent implements OnInit, OnDestroy {
   createForm: FormGroup;
+  expirationDate = new Date();
 
   constructor(
     private fb: FormBuilder,
@@ -16,6 +17,7 @@ export class EventCreateComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.expirationDate.setMonth(this.expirationDate.getMonth() + 3);
     this.createForm = this.fb.group({
       code: [ null, [ Validators.required, Validators.minLength(3) ] ],
       expiresOn: [ null, Validators.required ]

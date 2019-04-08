@@ -5,7 +5,13 @@
     </button>
   </div>
   <div><a routerLink="/">Sli.do</a></div>
-  <ul fxFlex fxLayout fxLayoutAlign="flex-end" fxLayoutGap="20px" fxHide.xs class="navigation-links">
+  <ul
+      fxFlex 
+      fxLayout 
+      fxLayoutAlign="flex-end" 
+      fxLayoutGap="20px" 
+      fxHide.xs 
+      class="navigation-links">
     <li><a *ngIf="!isAuth" routerLink="/login">Log In</a></li>
     <li><a *ngIf="!isAuth" routerLink="/signup">Sign Up</a></li>
     <li><a *ngIf="isAuth" routerLink="/user">Events</a></li>

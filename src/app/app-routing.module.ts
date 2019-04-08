@@ -20,7 +20,7 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'user', canActivate: [ AuthGuard ] ,children: [
+    path: 'user' ,children: [
       { path: '', component: UserTabComponent },
       { path: 'create', component: EventCreateComponent },
       { path: 'list', component: EventListComponent }

@@ -1,5 +1,9 @@
-<mat-table [dataSource]="dataSource">
-
+<div fxLayoutAlign="center center">
+  <mat-form-field fxFlex="40%">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+<mat-table [dataSource]="dataSource" matSort>
   <!-- <ng-container matColumnDef="id">
     <mat-header-cell *matHeaderCellDef>
       No
@@ -10,7 +14,7 @@
   </ng-container> -->
 
   <ng-container matColumnDef="code">
-    <mat-header-cell *matHeaderCellDef>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>
       Event Code
     </mat-header-cell>
     <mat-cell *matCellDef="let element">
@@ -19,16 +23,16 @@
   </ng-container>
 
   <ng-container matColumnDef="createdOn">
-    <mat-header-cell *matHeaderCellDef>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>
       Creation Date
     </mat-header-cell>
-    <mat-cell *matCellDef="let element">
+    <mat-cell *matCellDef="let element" >
       {{element.createdOn.toDate() | date: 'dd.MM.yyyy hh:mm:SS'}}
     </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="expiresOn">
-    <mat-header-cell *matHeaderCellDef>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>
       Expiration Date
     </mat-header-cell>
     <mat-cell *matCellDef="let element">
@@ -39,3 +43,4 @@
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
